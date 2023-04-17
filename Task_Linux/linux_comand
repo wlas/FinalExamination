@@ -1,0 +1,415 @@
+1. Используя команду cat в терминале операционной системы Linux, создать два файла Домашние животные (заполнив файл собаками, кошками, хомяками) и Вьючные животными заполнив файл Лошадьми, верблюдами и ослы), а затем объединить их. Просмотреть содержимое созданного файла. Переименовать файл, дав ему новое имя (Друзья человека).
+cat > "Домашние животные"
+Кошка
+Собака
+Хомяк
+
+cat > "Вьючные животные"
+Лошадь
+Верблюд
+Осел
+
+cat "Вьючные животные" >> "Домашние животные"
+
+cat "Домашние животные"
+Кошка
+Собака
+Хомяк
+Лошадь
+Верблюд
+Осел
+
+mv "Домашние животные" "Друзья человека"
+
+2. Создать директорию, переместить файл туда.
+mkdir Folder
+mv "Друзья человека" Folder
+
+3. Подключить дополнительный репозиторий MySQL. Установить любой пакет
+из этого репозитория.
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.24-1_all.deb
+dpkg -i mysql-apt-config_0.8.24-1_all.deb
+sudo apt update
+apt install mysql-server -y
+
+4. Установить и удалить deb-пакет с помощью dpkg.
+wget https://download.virtualbox.org/virtualbox/7.0.6/Virtualbox-7.0_7.0.6-155176~Ubuntu~jammy_amd64.deb
+dpkg -i virtualbox-7.0_7.0.6-155176~Ubuntu~jammy_amd64.deb
+apt -f install \
+dpkg -r virtualbox-7.0 \
+apt autoremove
+
+5. Выложить историю команд в терминале ubuntu.
+
+xandr@sLite:~/Загрузки/Task_Linux$ cat > "Домашние животные"
+Кошка
+Собака
+Хомяк
+^C
+xandr@sLite:~/Загрузки/Task_Linux$ cat > "Вьючные животные"
+Лошадь
+Верблюд
+Осел
+^C
+xandr@sLite:~/Загрузки/Task_Linux$ cat "Вьючные животные" >> "Домашние животные"
+xandr@sLite:~/Загрузки/Task_Linux$ mv "Домашние животные" "Друзья человека"
+xandr@sLite:~/Загрузки/Task_Linux$ mkdir Folder
+xandr@sLite:~/Загрузки/Task_Linux$ mv "Друзья человека" Folder
+xandr@sLite:~/Загрузки/Task_Linux$ wget https://dev.mysql.com/get/mysql-apt-config_0.8.24-1_all.deb
+--2023-04-17 18:31:11--  https://dev.mysql.com/get/mysql-apt-config_0.8.24-1_all.deb
+Распознаётся dev.mysql.com (dev.mysql.com)… 23.61.243.80, 2001:2030:21:19e::2e31, 2001:2030:21:1a9::2e31
+Подключение к dev.mysql.com (dev.mysql.com)|23.61.243.80|:443... соединение установлено.
+HTTP-запрос отправлен. Ожидание ответа… 302 Moved Temporarily
+Адрес: https://repo.mysql.com//mysql-apt-config_0.8.24-1_all.deb [переход]
+--2023-04-17 18:31:11--  https://repo.mysql.com//mysql-apt-config_0.8.24-1_all.deb
+Распознаётся repo.mysql.com (repo.mysql.com)… 2.18.33.182
+Подключение к repo.mysql.com (repo.mysql.com)|2.18.33.182|:443... соединение установлено.
+HTTP-запрос отправлен. Ожидание ответа… 200 OK
+Длина: 18048 (18K) [application/x-debian-package]
+Сохранение в: ‘mysql-apt-config_0.8.24-1_all.deb’
+
+mysql-apt-config_0.8.24-1 100%[===================================>]  17,62K  --.-KB/s    за 0s      
+
+2023-04-17 18:31:12 (173 MB/s) - ‘mysql-apt-config_0.8.24-1_all.deb’ сохранён [18048/18048]
+
+xandr@sLite:~/Загрузки/Task_Linux$ sudo dpkg -i mysql-apt-config_0.8.24-1_all.deb
+[sudo] пароль для xandr: 
+Выбор ранее не выбранного пакета mysql-apt-config.
+(Чтение базы данных … на данный момент установлено 214014 файлов и каталогов.)
+Подготовка к распаковке mysql-apt-config_0.8.24-1_all.deb …
+Распаковывается mysql-apt-config (0.8.24-1) …
+Настраивается пакет mysql-apt-config (0.8.24-1) …
+Warning: apt-key should not be used in scripts (called from postinst maintainerscript of the package mysql-apt-config)
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+OK
+xandr@sLite:~/Загрузки/Task_Linux$ sudo apt update 
+Сущ:1 http://repo.yandex.ru/yandex-disk/deb stable InRelease
+Сущ:2 http://ru.archive.ubuntu.com/ubuntu kinetic InRelease                                          
+Пол:3 http://ru.archive.ubuntu.com/ubuntu kinetic-updates InRelease [118 kB]                         
+Сущ:4 http://security.ubuntu.com/ubuntu kinetic-security InRelease                                   
+Пол:5 http://repo.mysql.com/apt/ubuntu kinetic InRelease [12,9 kB]                                   
+Пол:6 http://ru.archive.ubuntu.com/ubuntu kinetic-backports InRelease [99,9 kB]                      
+Сущ:7 https://dl.google.com/linux/chrome/deb stable InRelease                                        
+Сущ:8 https://ppa.launchpadcontent.net/sebastian-stenzel/cryptomator/ubuntu kinetic InRelease
+Пол:9 http://ru.archive.ubuntu.com/ubuntu kinetic-updates/main amd64 DEP-11 Metadata [85,7 kB]       
+Пол:10 http://ru.archive.ubuntu.com/ubuntu kinetic-updates/universe amd64 DEP-11 Metadata [41,3 kB]  
+Пол:11 http://ru.archive.ubuntu.com/ubuntu kinetic-updates/multiverse amd64 DEP-11 Metadata [212 B]  
+Пол:12 http://repo.mysql.com/apt/ubuntu kinetic/mysql-8.0 Sources [963 B]         
+Пол:13 http://ru.archive.ubuntu.com/ubuntu kinetic-backports/universe amd64 DEP-11 Metadata [10,5 kB]
+Сущ:14 https://ppa.launchpadcontent.net/slytomcat/ppa/ubuntu kinetic InRelease                       
+Пол:15 http://repo.mysql.com/apt/ubuntu kinetic/mysql-apt-config i386 Packages [565 B]               
+Пол:16 http://repo.mysql.com/apt/ubuntu kinetic/mysql-apt-config amd64 Packages [565 B]
+Пол:17 http://repo.mysql.com/apt/ubuntu kinetic/mysql-8.0 amd64 Packages [8 602 B]
+Пол:18 http://repo.mysql.com/apt/ubuntu kinetic/mysql-tools amd64 Packages [7 966 B]
+Пол:19 http://repo.mysql.com/apt/ubuntu kinetic/mysql-tools i386 Packages [458 B]
+Получено 387 kB за 1с (270 kB/s)            
+Чтение списков пакетов… Готово
+Построение дерева зависимостей… Готово
+Чтение информации о состоянии… Готово         
+Может быть обновлено 16 пакетов. Запустите «apt list --upgradable» для их показа.
+W: http://repo.yandex.ru/yandex-disk/deb/dists/stable/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+W: Цель Packages (main/binary-amd64/Packages) настроена несколько раз: в /etc/apt/sources.list.d/yandex-disk.list:1 и в /etc/apt/sources.list.d/yandex.list:1
+W: Цель Packages (main/binary-i386/Packages) настроена несколько раз: в /etc/apt/sources.list.d/yandex-disk.list:1 и в /etc/apt/sources.list.d/yandex.list:1
+W: Цель Packages (main/binary-all/Packages) настроена несколько раз: в /etc/apt/sources.list.d/yandex-disk.list:1 и в /etc/apt/sources.list.d/yandex.list:1
+W: Цель Translations (main/i18n/Translation-ru_RU) настроена несколько раз: в /etc/apt/sources.list.d/yandex-disk.list:1 и в /etc/apt/sources.list.d/yandex.list:1
+W: Цель Translations (main/i18n/Translation-ru) настроена несколько раз: в /etc/apt/sources.list.d/yandex-disk.list:1 и в /etc/apt/sources.list.d/yandex.list:1
+W: Цель Translations (main/i18n/Translation-en) настроена несколько раз: в /etc/apt/sources.list.d/yandex-disk.list:1 и в /etc/apt/sources.list.d/yandex.list:1
+W: Цель DEP-11 (main/dep11/Components-amd64.yml) настроена несколько раз: в /etc/apt/sources.list.d/yandex-disk.list:1 и в /etc/apt/sources.list.d/yandex.list:1
+W: Цель DEP-11 (main/dep11/Components-all.yml) настроена несколько раз: в /etc/apt/sources.list.d/yandex-disk.list:1 и в /etc/apt/sources.list.d/yandex.list:1
+W: Цель DEP-11-icons-small (main/dep11/icons-48x48.tar) настроена несколько раз: в /etc/apt/sources.list.d/yandex-disk.list:1 и в /etc/apt/sources.list.d/yandex.list:1
+W: Цель DEP-11-icons (main/dep11/icons-64x64.tar) настроена несколько раз: в /etc/apt/sources.list.d/yandex-disk.list:1 и в /etc/apt/sources.list.d/yandex.list:1
+W: Цель DEP-11-icons-hidpi (main/dep11/icons-64x64@2.tar) настроена несколько раз: в /etc/apt/sources.list.d/yandex-disk.list:1 и в /etc/apt/sources.list.d/yandex.list:1
+W: Цель CNF (main/cnf/Commands-amd64) настроена несколько раз: в /etc/apt/sources.list.d/yandex-disk.list:1 и в /etc/apt/sources.list.d/yandex.list:1
+W: Цель CNF (main/cnf/Commands-all) настроена несколько раз: в /etc/apt/sources.list.d/yandex-disk.list:1 и в /etc/apt/sources.list.d/yandex.list:1
+W: http://repo.mysql.com/apt/ubuntu/dists/kinetic/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+W: Цель Packages (main/binary-amd64/Packages) настроена несколько раз: в /etc/apt/sources.list.d/yandex-disk.list:1 и в /etc/apt/sources.list.d/yandex.list:1
+W: Цель Packages (main/binary-i386/Packages) настроена несколько раз: в /etc/apt/sources.list.d/yandex-disk.list:1 и в /etc/apt/sources.list.d/yandex.list:1
+W: Цель Packages (main/binary-all/Packages) настроена несколько раз: в /etc/apt/sources.list.d/yandex-disk.list:1 и в /etc/apt/sources.list.d/yandex.list:1
+W: Цель Translations (main/i18n/Translation-ru_RU) настроена несколько раз: в /etc/apt/sources.list.d/yandex-disk.list:1 и в /etc/apt/sources.list.d/yandex.list:1
+W: Цель Translations (main/i18n/Translation-ru) настроена несколько раз: в /etc/apt/sources.list.d/yandex-disk.list:1 и в /etc/apt/sources.list.d/yandex.list:1
+W: Цель Translations (main/i18n/Translation-en) настроена несколько раз: в /etc/apt/sources.list.d/yandex-disk.list:1 и в /etc/apt/sources.list.d/yandex.list:1
+W: Цель DEP-11 (main/dep11/Components-amd64.yml) настроена несколько раз: в /etc/apt/sources.list.d/yandex-disk.list:1 и в /etc/apt/sources.list.d/yandex.list:1
+W: Цель DEP-11 (main/dep11/Components-all.yml) настроена несколько раз: в /etc/apt/sources.list.d/yandex-disk.list:1 и в /etc/apt/sources.list.d/yandex.list:1
+W: Цель DEP-11-icons-small (main/dep11/icons-48x48.tar) настроена несколько раз: в /etc/apt/sources.list.d/yandex-disk.list:1 и в /etc/apt/sources.list.d/yandex.list:1
+W: Цель DEP-11-icons (main/dep11/icons-64x64.tar) настроена несколько раз: в /etc/apt/sources.list.d/yandex-disk.list:1 и в /etc/apt/sources.list.d/yandex.list:1
+W: Цель DEP-11-icons-hidpi (main/dep11/icons-64x64@2.tar) настроена несколько раз: в /etc/apt/sources.list.d/yandex-disk.list:1 и в /etc/apt/sources.list.d/yandex.list:1
+W: Цель CNF (main/cnf/Commands-amd64) настроена несколько раз: в /etc/apt/sources.list.d/yandex-disk.list:1 и в /etc/apt/sources.list.d/yandex.list:1
+W: Цель CNF (main/cnf/Commands-all) настроена несколько раз: в /etc/apt/sources.list.d/yandex-disk.list:1 и в /etc/apt/sources.list.d/yandex.list:1
+xandr@sLite:~/Загрузки/Task_Linux$ sudo apt install mysql-server -y
+Чтение списков пакетов… Готово
+Построение дерева зависимостей… Готово
+Чтение информации о состоянии… Готово         
+Будут установлены следующие дополнительные пакеты:
+  libaio1 libmecab2 mecab-ipadic mecab-ipadic-utf8 mecab-utils mysql-client mysql-common
+  mysql-community-client mysql-community-client-core mysql-community-client-plugins
+  mysql-community-server mysql-community-server-core
+Следующие НОВЫЕ пакеты будут установлены:
+  libaio1 libmecab2 mecab-ipadic mecab-ipadic-utf8 mecab-utils mysql-client mysql-common
+  mysql-community-client mysql-community-client-core mysql-community-client-plugins
+  mysql-community-server mysql-community-server-core mysql-server
+Обновлено 0 пакетов, установлено 13 новых пакетов, для удаления отмечено 0 пакетов, и 16 пакетов не обновлено.
+Необходимо скачать 38,0 MB архивов.
+После данной операции объём занятого дискового пространства возрастёт на 273 MB.
+Пол:1 http://repo.mysql.com/apt/ubuntu kinetic/mysql-8.0 amd64 mysql-common amd64 8.0.33-1ubuntu22.10 [68,9 kB]
+Пол:2 http://repo.mysql.com/apt/ubuntu kinetic/mysql-8.0 amd64 mysql-community-client-plugins amd64 8.0.33-1ubuntu22.10 [1 403 kB]
+Пол:3 http://repo.mysql.com/apt/ubuntu kinetic/mysql-8.0 amd64 mysql-community-client-core amd64 8.0.33-1ubuntu22.10 [2 189 kB]
+Пол:4 http://repo.mysql.com/apt/ubuntu kinetic/mysql-8.0 amd64 mysql-community-client amd64 8.0.33-1ubuntu22.10 [2 296 kB]
+Пол:5 http://repo.mysql.com/apt/ubuntu kinetic/mysql-8.0 amd64 mysql-client amd64 8.0.33-1ubuntu22.10 [67,6 kB]
+Пол:6 http://repo.mysql.com/apt/ubuntu kinetic/mysql-8.0 amd64 mysql-community-server-core amd64 8.0.33-1ubuntu22.10 [24,9 MB]
+Пол:7 http://repo.mysql.com/apt/ubuntu kinetic/mysql-8.0 amd64 mysql-community-server amd64 8.0.33-1ubuntu22.10 [79,2 kB]
+Пол:8 http://repo.mysql.com/apt/ubuntu kinetic/mysql-8.0 amd64 mysql-server amd64 8.0.33-1ubuntu22.10 [67,6 kB]
+Пол:9 http://ru.archive.ubuntu.com/ubuntu kinetic/main amd64 libaio1 amd64 0.3.113-2 [6 902 B]
+Пол:10 http://ru.archive.ubuntu.com/ubuntu kinetic/main amd64 libmecab2 amd64 0.996-14build9 [199 kB]
+Пол:11 http://ru.archive.ubuntu.com/ubuntu kinetic/main amd64 mecab-utils amd64 0.996-14build9 [4 850 B]
+Пол:12 http://ru.archive.ubuntu.com/ubuntu kinetic/main amd64 mecab-ipadic all 2.7.0-20070801+main-3 [6 718 kB]
+Пол:13 http://ru.archive.ubuntu.com/ubuntu kinetic/main amd64 mecab-ipadic-utf8 all 2.7.0-20070801+main-3 [4 384 B]
+Получено 38,0 MB за 6с (6 606 kB/s)                
+Предварительная настройка пакетов …
+Выбор ранее не выбранного пакета mysql-common.
+(Чтение базы данных … на данный момент установлено 214019 файлов и каталогов.)
+Подготовка к распаковке …/00-mysql-common_8.0.33-1ubuntu22.10_amd64.deb …
+Распаковывается mysql-common (8.0.33-1ubuntu22.10) …
+Выбор ранее не выбранного пакета mysql-community-client-plugins.
+Подготовка к распаковке …/01-mysql-community-client-plugins_8.0.33-1ubuntu22.10_amd64.deb …
+Распаковывается mysql-community-client-plugins (8.0.33-1ubuntu22.10) …
+Выбор ранее не выбранного пакета mysql-community-client-core.
+Подготовка к распаковке …/02-mysql-community-client-core_8.0.33-1ubuntu22.10_amd64.deb …
+Распаковывается mysql-community-client-core (8.0.33-1ubuntu22.10) …
+Выбор ранее не выбранного пакета mysql-community-client.
+Подготовка к распаковке …/03-mysql-community-client_8.0.33-1ubuntu22.10_amd64.deb …
+Распаковывается mysql-community-client (8.0.33-1ubuntu22.10) …
+Выбор ранее не выбранного пакета mysql-client.
+Подготовка к распаковке …/04-mysql-client_8.0.33-1ubuntu22.10_amd64.deb …
+Распаковывается mysql-client (8.0.33-1ubuntu22.10) …
+Выбор ранее не выбранного пакета libaio1:amd64.
+Подготовка к распаковке …/05-libaio1_0.3.113-2_amd64.deb …
+Распаковывается libaio1:amd64 (0.3.113-2) …
+Выбор ранее не выбранного пакета libmecab2:amd64.
+Подготовка к распаковке …/06-libmecab2_0.996-14build9_amd64.deb …
+Распаковывается libmecab2:amd64 (0.996-14build9) …
+Выбор ранее не выбранного пакета mysql-community-server-core.
+Подготовка к распаковке …/07-mysql-community-server-core_8.0.33-1ubuntu22.10_amd64.deb …
+Распаковывается mysql-community-server-core (8.0.33-1ubuntu22.10) …
+Выбор ранее не выбранного пакета mysql-community-server.
+Подготовка к распаковке …/08-mysql-community-server_8.0.33-1ubuntu22.10_amd64.deb …
+Распаковывается mysql-community-server (8.0.33-1ubuntu22.10) …
+Выбор ранее не выбранного пакета mecab-utils.
+Подготовка к распаковке …/09-mecab-utils_0.996-14build9_amd64.deb …
+Распаковывается mecab-utils (0.996-14build9) …
+Выбор ранее не выбранного пакета mecab-ipadic.
+Подготовка к распаковке …/10-mecab-ipadic_2.7.0-20070801+main-3_all.deb …
+Распаковывается mecab-ipadic (2.7.0-20070801+main-3) …
+Выбор ранее не выбранного пакета mecab-ipadic-utf8.
+Подготовка к распаковке …/11-mecab-ipadic-utf8_2.7.0-20070801+main-3_all.deb …
+Распаковывается mecab-ipadic-utf8 (2.7.0-20070801+main-3) …
+Выбор ранее не выбранного пакета mysql-server.
+Подготовка к распаковке …/12-mysql-server_8.0.33-1ubuntu22.10_amd64.deb …
+Распаковывается mysql-server (8.0.33-1ubuntu22.10) …
+Настраивается пакет libmecab2:amd64 (0.996-14build9) …
+Настраивается пакет mysql-common (8.0.33-1ubuntu22.10) …
+update-alternatives: используется /etc/mysql/my.cnf.fallback для предоставления /etc/mysql/my.cnf (my.
+cnf) в автоматическом режиме
+Настраивается пакет mecab-utils (0.996-14build9) …
+Настраивается пакет mysql-community-client-plugins (8.0.33-1ubuntu22.10) …
+Настраивается пакет libaio1:amd64 (0.3.113-2) …
+Настраивается пакет mecab-ipadic (2.7.0-20070801+main-3) …
+Compiling IPA dictionary for Mecab.  This takes long time...
+reading /usr/share/mecab/dic/ipadic/unk.def ... 40
+emitting double-array: 100% |###########################################| 
+/usr/share/mecab/dic/ipadic/model.def is not found. skipped.
+reading /usr/share/mecab/dic/ipadic/Adnominal.csv ... 135
+reading /usr/share/mecab/dic/ipadic/Noun.csv ... 60477
+reading /usr/share/mecab/dic/ipadic/Suffix.csv ... 1393
+reading /usr/share/mecab/dic/ipadic/Noun.adverbal.csv ... 795
+reading /usr/share/mecab/dic/ipadic/Noun.name.csv ... 34202
+reading /usr/share/mecab/dic/ipadic/Adj.csv ... 27210
+reading /usr/share/mecab/dic/ipadic/Noun.nai.csv ... 42
+reading /usr/share/mecab/dic/ipadic/Noun.demonst.csv ... 120
+reading /usr/share/mecab/dic/ipadic/Postp-col.csv ... 91
+reading /usr/share/mecab/dic/ipadic/Noun.proper.csv ... 27328
+reading /usr/share/mecab/dic/ipadic/Noun.adjv.csv ... 3328
+reading /usr/share/mecab/dic/ipadic/Postp.csv ... 146
+reading /usr/share/mecab/dic/ipadic/Prefix.csv ... 221
+reading /usr/share/mecab/dic/ipadic/Auxil.csv ... 199
+reading /usr/share/mecab/dic/ipadic/Interjection.csv ... 252
+reading /usr/share/mecab/dic/ipadic/Filler.csv ... 19
+reading /usr/share/mecab/dic/ipadic/Conjunction.csv ... 171
+reading /usr/share/mecab/dic/ipadic/Verb.csv ... 130750
+reading /usr/share/mecab/dic/ipadic/Noun.place.csv ... 72999
+reading /usr/share/mecab/dic/ipadic/Noun.org.csv ... 16668
+reading /usr/share/mecab/dic/ipadic/Others.csv ... 2
+reading /usr/share/mecab/dic/ipadic/Noun.verbal.csv ... 12146
+reading /usr/share/mecab/dic/ipadic/Noun.number.csv ... 42
+reading /usr/share/mecab/dic/ipadic/Symbol.csv ... 208
+reading /usr/share/mecab/dic/ipadic/Adverb.csv ... 3032
+reading /usr/share/mecab/dic/ipadic/Noun.others.csv ... 151
+emitting double-array: 100% |###########################################| 
+reading /usr/share/mecab/dic/ipadic/matrix.def ... 1316x1316
+emitting matrix      : 100% |###########################################| 
+
+done!
+update-alternatives: используется /var/lib/mecab/dic/ipadic для предоставления /var/lib/mecab/dic/debi
+an (mecab-dictionary) в автоматическом режиме
+Настраивается пакет mysql-community-client-core (8.0.33-1ubuntu22.10) …
+Настраивается пакет mysql-community-server-core (8.0.33-1ubuntu22.10) …
+Настраивается пакет mecab-ipadic-utf8 (2.7.0-20070801+main-3) …
+Compiling IPA dictionary for Mecab.  This takes long time...
+reading /usr/share/mecab/dic/ipadic/unk.def ... 40
+emitting double-array: 100% |###########################################| 
+/usr/share/mecab/dic/ipadic/model.def is not found. skipped.
+reading /usr/share/mecab/dic/ipadic/Adnominal.csv ... 135
+reading /usr/share/mecab/dic/ipadic/Noun.csv ... 60477
+reading /usr/share/mecab/dic/ipadic/Suffix.csv ... 1393
+reading /usr/share/mecab/dic/ipadic/Noun.adverbal.csv ... 795
+reading /usr/share/mecab/dic/ipadic/Noun.name.csv ... 34202
+reading /usr/share/mecab/dic/ipadic/Adj.csv ... 27210
+reading /usr/share/mecab/dic/ipadic/Noun.nai.csv ... 42
+reading /usr/share/mecab/dic/ipadic/Noun.demonst.csv ... 120
+reading /usr/share/mecab/dic/ipadic/Postp-col.csv ... 91
+reading /usr/share/mecab/dic/ipadic/Noun.proper.csv ... 27328
+reading /usr/share/mecab/dic/ipadic/Noun.adjv.csv ... 3328
+reading /usr/share/mecab/dic/ipadic/Postp.csv ... 146
+reading /usr/share/mecab/dic/ipadic/Prefix.csv ... 221
+reading /usr/share/mecab/dic/ipadic/Auxil.csv ... 199
+reading /usr/share/mecab/dic/ipadic/Interjection.csv ... 252
+reading /usr/share/mecab/dic/ipadic/Filler.csv ... 19
+reading /usr/share/mecab/dic/ipadic/Conjunction.csv ... 171
+reading /usr/share/mecab/dic/ipadic/Verb.csv ... 130750
+reading /usr/share/mecab/dic/ipadic/Noun.place.csv ... 72999
+reading /usr/share/mecab/dic/ipadic/Noun.org.csv ... 16668
+reading /usr/share/mecab/dic/ipadic/Others.csv ... 2
+reading /usr/share/mecab/dic/ipadic/Noun.verbal.csv ... 12146
+reading /usr/share/mecab/dic/ipadic/Noun.number.csv ... 42
+reading /usr/share/mecab/dic/ipadic/Symbol.csv ... 208
+reading /usr/share/mecab/dic/ipadic/Adverb.csv ... 3032
+reading /usr/share/mecab/dic/ipadic/Noun.others.csv ... 151
+emitting double-array: 100% |###########################################| 
+reading /usr/share/mecab/dic/ipadic/matrix.def ... 1316x1316
+emitting matrix      : 100% |###########################################| 
+
+done!
+update-alternatives: используется /var/lib/mecab/dic/ipadic-utf8 для предоставления /var/lib/mecab/dic
+/debian (mecab-dictionary) в автоматическом режиме
+Настраивается пакет mysql-community-client (8.0.33-1ubuntu22.10) …
+Настраивается пакет mysql-client (8.0.33-1ubuntu22.10) …
+Настраивается пакет mysql-community-server (8.0.33-1ubuntu22.10) …
+update-alternatives: используется /etc/mysql/mysql.cnf для предоставления /etc/mysql/my.cnf (my.cnf) в
+ автоматическом режиме
+Created symlink /etc/systemd/system/multi-user.target.wants/mysql.service → /lib/systemd/system/mysql.
+service.
+Настраивается пакет mysql-server (8.0.33-1ubuntu22.10) …
+Обрабатываются триггеры для man-db (2.10.2-2) …
+Обрабатываются триггеры для libc-bin (2.36-0ubuntu4) 
+sudo dpkg -i virtualbox-7.0_7.0.6-155176~Ubuntu~jammy_amd64.deb
+Выбор ранее не выбранного пакета virtualbox-7.0.
+(Чтение базы данных … на данный момент установлено 214055 файлов и каталогов.)
+Подготовка к распаковке virtualbox-7.0_7.0.6-155176~Ubuntu~jammy_amd64.deb …
+Распаковывается virtualbox-7.0 (7.0.6-155176~Ubuntu~jammy) …
+dpkg: зависимости пакетов не позволяют настроить пакет virtualbox-7.0:
+ virtualbox-7.0 зависит от libqt5help5 (>= 5.15.1), однако:
+  Пакет libqt5help5 не установлен.
+ virtualbox-7.0 зависит от libqt5opengl5 (>= 5.0.2), однако:
+  Пакет libqt5opengl5 не установлен.
+ virtualbox-7.0 зависит от libqt5printsupport5 (>= 5.0.2), однако:
+  Пакет libqt5printsupport5 не установлен.
+ virtualbox-7.0 зависит от libqt5xml5 (>= 5.0.2), однако:
+  Пакет libqt5xml5 не установлен.
+
+dpkg: ошибка при обработке пакета virtualbox-7.0 (--install):
+ проблемы зависимостей — оставляем не настроенным
+Обрабатываются триггеры для mailcap (3.70+nmu1ubuntu1) …
+Обрабатываются триггеры для gnome-menus (3.36.0-1ubuntu3) …
+Обрабатываются триггеры для desktop-file-utils (0.26-1ubuntu4) …
+Обрабатываются триггеры для hicolor-icon-theme (0.17-2) …
+Обрабатываются триггеры для shared-mime-info (2.2-1) …
+При обработке следующих пакетов произошли ошибки:
+ virtualbox-7.0
+xandr@sLite:~/Загрузки/Task_Linux$ sudo apt -f install
+Чтение списков пакетов… Готово
+Построение дерева зависимостей… Готово
+Чтение информации о состоянии… Готово         
+Исправление зависимостей… Готово
+Будут установлены следующие дополнительные пакеты:
+  libqt5help5 libqt5opengl5 libqt5printsupport5 libqt5sql5 libqt5sql5-sqlite libqt5xml5
+Следующие НОВЫЕ пакеты будут установлены:
+  libqt5help5 libqt5opengl5 libqt5printsupport5 libqt5sql5 libqt5sql5-sqlite libqt5xml5
+Обновлено 0 пакетов, установлено 6 новых пакетов, для удаления отмечено 0 пакетов, и 16 пакетов не обновлено.
+Установлено или удалено не до конца 1 пакетов.
+Необходимо скачать 814 kB архивов.
+После данной операции объём занятого дискового пространства возрастёт на 3 186 kB.
+Хотите продолжить? [Д/н] y
+Пол:1 http://ru.archive.ubuntu.com/ubuntu kinetic/universe amd64 libqt5sql5 amd64 5.15.6+dfsg-1 [122 kB]
+Пол:2 http://ru.archive.ubuntu.com/ubuntu kinetic/universe amd64 libqt5help5 amd64 5.15.6-1build1 [160 kB]
+Пол:3 http://ru.archive.ubuntu.com/ubuntu kinetic/universe amd64 libqt5opengl5 amd64 5.15.6+dfsg-1 [151 kB]
+Пол:4 http://ru.archive.ubuntu.com/ubuntu kinetic/universe amd64 libqt5printsupport5 amd64 5.15.6+dfsg-1 [208 kB]
+Пол:5 http://ru.archive.ubuntu.com/ubuntu kinetic/universe amd64 libqt5xml5 amd64 5.15.6+dfsg-1 [122 kB]
+Пол:6 http://ru.archive.ubuntu.com/ubuntu kinetic/universe amd64 libqt5sql5-sqlite amd64 5.15.6+dfsg-1 [51,7 kB]
+Получено 814 kB за 0с (2 581 kB/s)             
+Выбор ранее не выбранного пакета libqt5sql5:amd64.
+(Чтение базы данных … на данный момент установлено 214790 файлов и каталогов.)
+Подготовка к распаковке …/0-libqt5sql5_5.15.6+dfsg-1_amd64.deb …
+Распаковывается libqt5sql5:amd64 (5.15.6+dfsg-1) …
+Выбор ранее не выбранного пакета libqt5help5:amd64.
+Подготовка к распаковке …/1-libqt5help5_5.15.6-1build1_amd64.deb …
+Распаковывается libqt5help5:amd64 (5.15.6-1build1) …
+Выбор ранее не выбранного пакета libqt5opengl5:amd64.
+Подготовка к распаковке …/2-libqt5opengl5_5.15.6+dfsg-1_amd64.deb …
+Распаковывается libqt5opengl5:amd64 (5.15.6+dfsg-1) …
+Выбор ранее не выбранного пакета libqt5printsupport5:amd64.
+Подготовка к распаковке …/3-libqt5printsupport5_5.15.6+dfsg-1_amd64.deb …
+Распаковывается libqt5printsupport5:amd64 (5.15.6+dfsg-1) …
+Выбор ранее не выбранного пакета libqt5xml5:amd64.
+Подготовка к распаковке …/4-libqt5xml5_5.15.6+dfsg-1_amd64.deb …
+Распаковывается libqt5xml5:amd64 (5.15.6+dfsg-1) …
+Выбор ранее не выбранного пакета libqt5sql5-sqlite:amd64.
+Подготовка к распаковке …/5-libqt5sql5-sqlite_5.15.6+dfsg-1_amd64.deb …
+Распаковывается libqt5sql5-sqlite:amd64 (5.15.6+dfsg-1) …
+Настраивается пакет libqt5sql5:amd64 (5.15.6+dfsg-1) …
+Настраивается пакет libqt5printsupport5:amd64 (5.15.6+dfsg-1) …
+Настраивается пакет libqt5xml5:amd64 (5.15.6+dfsg-1) …
+Настраивается пакет libqt5opengl5:amd64 (5.15.6+dfsg-1) …
+Настраивается пакет libqt5sql5-sqlite:amd64 (5.15.6+dfsg-1) …
+Настраивается пакет libqt5help5:amd64 (5.15.6-1build1) …
+Настраивается пакет virtualbox-7.0 (7.0.6-155176~Ubuntu~jammy) …
+Adding group `vboxusers' (GID 138) ...
+Done.
+This system is currently not set up to build kernel modules.
+Please install the gcc make perl packages from your distribution.
+This system is currently not set up to build kernel modules.
+Please install the gcc make perl packages from your distribution.
+
+There were problems setting up VirtualBox.  To re-start the set-up process, run
+  /sbin/vboxconfig
+as root.  If your system is using EFI Secure Boot you may need to sign the
+kernel modules (vboxdrv, vboxnetflt, vboxnetadp, vboxpci) before you can load
+them. Please see your Linux system's documentation for more information.
+Обрабатываются триггеры для libc-bin (2.36-0ubuntu4) …
+xandr@sLite:~/Загрузки/Task_Linux$ dpkg -r virtualbox-7.0
+dpkg: ошибка: запрошенная операция требует привилегий суперпользователя
+xandr@sLite:~/Загрузки/Task_Linux$ sudo dpkg -r virtualbox-7.0
+(Чтение базы данных … на данный момент установлен 214831 файл и каталог.)
+Удаляется virtualbox-7.0 (7.0.6-155176~Ubuntu~jammy) …
+Обрабатываются триггеры для shared-mime-info (2.2-1) …
+Обрабатываются триггеры для hicolor-icon-theme (0.17-2) …
+Обрабатываются триггеры для mailcap (3.70+nmu1ubuntu1) …
+Обрабатываются триггеры для gnome-menus (3.36.0-1ubuntu3) …
+Обрабатываются триггеры для desktop-file-utils (0.26-1ubuntu4) …
+xandr@sLite:~/Загрузки/Task_Linux$ sudo apt autoremove
+Чтение списков пакетов… Готово
+Построение дерева зависимостей… Готово
+Чтение информации о состоянии… Готово         
+Следующие пакеты будут УДАЛЕНЫ:
+  libqt5help5 libqt5opengl5 libqt5printsupport5 libqt5sql5 libqt5sql5-sqlite libqt5xml5
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 6 пакетов, и 16 пакетов не обновлено.
+После данной операции объём занятого дискового пространства уменьшится на 3 186 kB.
+Хотите продолжить? [Д/н] y
+(Чтение базы данных … на данный момент установлено 214097 файлов и каталогов.)
+Удаляется libqt5help5:amd64 (5.15.6-1build1) …
+Удаляется libqt5opengl5:amd64 (5.15.6+dfsg-1) …
+Удаляется libqt5printsupport5:amd64 (5.15.6+dfsg-1) …
+Удаляется libqt5sql5-sqlite:amd64 (5.15.6+dfsg-1) …
+Удаляется libqt5sql5:amd64 (5.15.6+dfsg-1) …
+Удаляется libqt5xml5:amd64 (5.15.6+dfsg-1) …
+Обрабатываются триггеры для libc-bin (2.36-0ubuntu4) …
+
+
